@@ -1,0 +1,302 @@
+body{
+	font-family: sans-serif;
+}
+nav ul li{
+	text-transform: uppercase;
+	font-size: 12px;
+}
+nav button{
+	right: 10px;
+	top: 10px;
+}
+#services{
+	background-color: #709dca;
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+#services h2{
+	font-weight: 900;
+	margin: 0 auto;
+
+}
+#services p{
+	margin: 0;
+}
+
+#laptop{
+	padding-top: 1%;
+	width: 50vw;
+	height: 25vw;
+	background-image: url("../assets/laptop.png");
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	position: relative;
+	bottom: -10vw;
+}
+.carouImg{
+	width: 35vw;
+	height: 16vw;
+	margin: 0 auto;
+}
+#laptop li{
+	border-radius: 50%;
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	border: 2px solid gray;
+}
+#laptop li.active{
+	border: 2px solid #1ca8dd;	
+}
+#services2{
+	color: #394b50;
+	padding: 10vw 0;
+}
+#services2 h3{
+	font-weight: 900;
+	font-size: 30px;
+}
+#services2 p{
+	color: gray;
+}
+#services2 .container h3{
+	font-weight: 700;
+	font-size: 16px;
+}
+#services2 .container p{
+	font-size: 12px;
+}
+
+#aboutUs{
+	background-color: #ffc155;
+	color: white;
+}
+#aboutUs h2{
+	font-weight: 900;
+}
+#aboutUs p{
+	font-size: 14px;
+}
+#pricingWrapper{
+	background-color: #e7edf3;
+	height: 900px;
+}
+#pricing{
+	color: #394b50;
+	margin: 0 auto;
+	font-family: verdana, sans-serif;
+	position: relative;
+}
+.innerWrapper{
+	width: 100%;
+}
+@media only screen and (min-width: 1170px) {
+	.innerWrapper{
+		width: 1170px;
+	}
+	#pricing{
+		width: 1170px;
+	}
+}
+.priceTag{
+
+}
+.priceLine{
+	color: #818b95;
+	text-transform: uppercase;
+	
+}
+.priceLine2{
+	color: #bfc4c9;
+	text-transform: uppercase;
+	border-top: 1px solid #e2e9f0;
+	padding: 15px 0;
+}
+#pricing h4{
+	font-size: 22px;
+}
+#pricing h3{
+	font-size: 50px;
+}
+.supMoney{
+	font-size: 28px;	
+}
+.cardPremium{
+	background-color: #709dca;
+	#height: 550px;
+}
+@media only screen and (min-width: 570px) {
+	.cardNormal{
+		position: relative;
+		top: 20px;
+	}
+	.cardPremium{
+		border-bottom: 40px solid #709dca;
+	}
+}
+#pricingPrevBtn{
+	border: 0;
+	border-radius: 50%;
+	background-color: gold;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	z-index: 1;
+	left: 10px;
+	top: 52%;
+}
+#pricingNextBtn{
+	border: 0;
+	border-radius: 50%;
+	background-color: gold;
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	z-index: 1;
+	right: 10px;
+	top: 52%;
+}
+#howItWorks{
+	text-align: center;
+	min-height: 860px;
+	display: flex;
+}
+#howItWorks .container{
+	margin: auto;
+}
+#howItWorks h2, #newsletter h2{
+	color: #394b50;
+	font-weight: 900;
+	font-size: 30px;
+}
+#happyClients h2{
+	font-weight: 900;
+	font-size: 30px;	
+}
+#howItWorks p, #newsletter p{
+	color: #9e9e9e;
+}
+.card h5{
+	color: #394b50;
+	font-size: 20px;
+	font-weight: 700;
+}
+.card p{
+	font-size: 13px;
+}
+.card img{
+	height: 67px;
+}
+.moveDown50{
+	position: relative;
+	top: 50px;
+	z-index: 1;
+}
+.moveDown51{
+	position: relative;
+	top: 150px;
+	z-index: 1;
+}
+#happyClients{
+	background-color: #ffc155;
+	min-height: 910px;
+	color: white;
+}
+#happyClients footer a{
+	color: #f6772c;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+#happyClients span{
+	color: #99a9ae;
+	text-transform: uppercase;
+}
+#happyCp{
+	color: #8d8d8d;
+	font-size: 15px;
+}
+#happyCp:before{
+	content: '“';
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	font-size: 20px;
+	color: black;
+}
+#happyCp:after{
+	content: '“';
+	position: absolute;
+	z-index: 1;
+	font-size: 20px;
+	right: 0px;
+	color: black;
+}
+@media only screen and (max-width: 500px) {
+	#laptop{
+		padding-top: 2%;
+		width: 90vw;
+		height: 40vw;
+		background-size: 100% 75%;
+		bottom: -15vw;
+	}
+	.carouImg{
+		width: 65vw;
+		height: 23vw;
+		margin: 0 auto;
+	}
+	#laptop li{
+		height: 12px;
+		width: 12px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#happyCp{
+		font-size: 12px;
+	}
+}
+#newsletter{
+	height: 900px;
+}
+.bgWMap{
+	background: url("../assets/wmap.png") center no-repeat;
+	height: 550px;
+}
+.wMapCircle{
+	background-color: #394b50;
+	width: 240px; height: 240px;
+	font-size: 12px;
+	color: #8f9a9e;
+	border: 3px solid white;
+	position: relative;
+}
+.wMapCircle h3{
+	margin: 0;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 900;
+	color: white;
+}
+.wMapCircle:after{
+	content: url("../assets/arrDown.png");
+	position: absolute;
+	bottom: -16px;
+	left: calc(50% - 7px);
+}
+@media only screen and (max-width: 500px) {
+	.bgWMap{
+		background-size: 700px;
+		height: 390px;
+	}
+	.wMapCircle{
+		width: 160px; height: 160px;
+		font-size: 11px;
+	}
+}
+
+.copyFooter{
+	background-color: #709dca;
+	color: white;
+	padding: 16px 0;
+	font-family: 'Franklin Gothic', sans-serif;
+}

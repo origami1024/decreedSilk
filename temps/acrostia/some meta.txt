@@ -1,0 +1,6 @@
+horizontal 85%
+vertical 75%
+1366
+935 - header and main
+
+page
