@@ -1,8 +1,10 @@
 body{
 	background: white;
+	background: linear-gradient(to left, white, #ccc);
     margin: 0;
 	font-family: 'Russo One', sans-serif;
 	font-size: 14px;
+	position: relative;
 }
 #main{
 	width: 90%;
@@ -10,8 +12,8 @@ body{
     color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
+	justify-content: center;
+	
 }
 #main h2{
 	letter-spacing: 5px;
@@ -31,11 +33,13 @@ body{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-bottom: 50px;
 }
 .techDisplay{
 	padding-bottom: 5px;
 }
 .projCard{
+	z-index: 1;
 	text-decoration: none;
 	display: flex;
 	flex-direction: column;
@@ -51,13 +55,24 @@ body{
 .projCard:hover{
 	background: gray;
 	transition-duration: 0.3s;
-	box-shadow: 0px 0px 25px gray;
+	transform: scale(1.2) rotate(2deg);
+	box-shadow: 0px 0px 12px 6px yellowgreen;
 	color: black;
+	border-color: yellowgreen;
+	z-index: 2;
+}
+.projCard:hover img{
+	filter:saturate(2);
+	border-top: 2px solid yellowgreen;
+	border-bottom: 2px solid yellowgreen;
 }
 .projCard img{
 	width: 200px;
 	height: 120px;
 	margin: 0 auto;
+	box-sizing: border-box;
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
 }
 .projCard h3{
 	margin: 0 auto;
@@ -84,12 +99,33 @@ body{
 	width: 75%;
 	margin: 0 auto;
 }
+#contacts div {
+	display: flex;
+	flex:1;
+	justify-content: space-around;
+	
+}
+@media screen and (max-width: 800px) {
+	#contacts{
+	  flex-direction: column;
+	}
+	#contacts div{
+		justify-content: space-between;
+		font-size:12px;
+	}
+}
+@media screen and (max-width: 520px) {
+	#contacts div{
+		flex-direction: column;
+	}
+}
 #contacts a{
 	color: #51585A;
 	margin-bottom: 5px;
 	margin: auto 0px;
 	line-height: 28px;
-	min-width: 190px;
+	min-width: 195px;
+	position: relative;
 }
 #contacts a:hover{
 	color: black;
@@ -121,10 +157,12 @@ body{
 	padding: 10px 0;
 	border-bottom: 1px solid black;
 	background-color: gold;
+	z-index: 2;
 }
 #head nav{
 	width: 75%;
 	margin: 0 auto;
+	z-index: 2;
 }
 #head nav a{
 	text-decoration: none;
@@ -174,4 +212,138 @@ body{
 }
 .responsive{
 	color: lightseagreen;
+}
+
+
+
+
+/*bubbles and stuff stolen from https://codepen.io/mohaiman/pen/MQqMyo*/
+
+.bubbles {
+    pointer-events: none;
+	position: absolute;
+	box-sizing: border-box;
+    top: 0;
+	left: 0;
+    width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+.bubbles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: animate 25s linear infinite;
+	top: -150px;
+}
+
+.bubbles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.bubbles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.bubbles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.bubbles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.bubbles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.bubbles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.bubbles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.bubbles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.bubbles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.bubbles li:nth-child(10){
+    left: 80%;
+    width: 100px;
+    height: 100px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+.bubbles li:nth-child(11){
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 3s;
+    animation-duration: 14s;
+}
+.bubbles li:nth-child(12){
+    left: 60%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 1s;
+    animation-duration: 21s;
+}
+
+
+
+@keyframes animate {
+    0%{
+        transform: translateY(1200px) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1150px) rotate(720deg);
+        opacity: 0;
+        border-radius: 100%;
+    }
+
 }

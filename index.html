@@ -15,8 +15,11 @@
 			<section id="contacts">
 				<!--<h3>Контакты</h3>-->
 				<p>Никита Кутузов</p>
-				<a id="mailLink" href="mailto:origami1024@gmail.com"><img style="vertical-align: middle" width=16px src="assets/gmail.png"> <span>origami1024@gmail.com</span></a>
-				<a id="githubLink" href="https://github.com/origami1024"><img style="vertical-align: middle" width=16px src="assets/github-logo.png"> <span>github.com/origami1024</span></a>
+				<div>
+					<a id="mailLink" href="mailto:origami1024@gmail.com"><img style="vertical-align: middle" width=18px src="assets/gmail.svg"> <span>origami1024@gmail.com</span></a>
+					<a id="githubLink" href="https://github.com/origami1024"><img style="vertical-align: middle" width=18px src="assets/github-logo.svg"> <span>github.com/origami1024</span></a>
+					<a id="telegramLink" href="https://t.me/origami1024"><img style="vertical-align: middle" width=18px src="assets/tgram.svg"> <span>t.me/origami1024</span></a>
+				</div>
 			</section>
 		</footer>
 	</header>
@@ -42,78 +45,25 @@
 					</div>
 				</div>
 			</a>
-			
-			<!--
-			<a href="https://mighty-tor-92733.herokuapp.com/" class="projCard" target="_blanc">
-					<img src="assets/preview/bulletin.png" alt="bulletin board">
-					<h3>Bulletin board</h3>
-					<p>Тест на Heroku</p>
-					<span class="jType">bootstrap, jquery,</span>
-					<span class="jType">AJAX, expressjs,</span>
-					<span class="jType">postgreSQL</span>
-			</a>
-			<a href="guestBook/chat.html" class="projCard" target="_blanc">
-					<img src="assets/preview/guestBook.png" alt="guest book">
-					<h3>Basic guest book</h3>
-					<p>Тестовый сайт</p>
-					<span class="jType">bootstrap, jquery,</span>
-					<span class="jType">AJAX, php, mySQL</span>
-					<span class="jType">responsive</span>
-			</a>
-			<a href="temps/Business/index.html" class="projCard" target="_blanc">
-					<img src="assets/preview/business.png" alt="Business">
-					<h3>Generic Business</h3>
-					<p>Сайт Визитка</p>
-					<span class="jType">Верстка</span>
-					<span class="jType">Bootstrap+jQuery</span>
-					<span class="jType">responsive</span>
-			</a>
-			<a href="https://origami1024.github.io/News-feed/newsfeed.html" class="projCard" target="_blanc">
-					<img src="assets/preview/newsfeed.png" alt="Acrostia">
-					<h3>Лента Событий</h3>
-					<p>Умный Дом</p>
-					<span class="jType">Верстка HTML+CSS+JS</span>
-					<span class="jType">responsive</span>
-			</a>
-			<a href="https://origami1024.github.io/briefing/briefing.html" class="projCard" target="_blanc">
-					<img src="assets/preview/briefing.png" alt="briefing">
-					<h3>Сводка</h3>
-					<p>Умный Дом</p>
-					<span class="jType">Верстка HTML+CSS+JS</span>
-					<span class="jType">responsive</span>
-			</a>
-			<a href="temps/SafariTours/home.html" class="projCard" target="_blanc">
-					<img src="assets/preview/safari.png" alt="safari">
-					<h3>Safari Tours</h3>
-					<p>Travelling</p>
-					<span class="jType">Верстка HTML+CSS+JS</span>
-			</a>
-			<a href="temps/restaurant/index.html" class="projCard" target="_blanc">
-					<img src="assets/preview/restaurant.png" alt="Acrostia">
-					<h3>Lambda</h3>
-					<p>Restaurant</p>
-					<span class="jType">Верстка HTML+CSS</span>
-			</a>
-			<a href="temps/acrostia/home.html" class="projCard" target="_blanc">
-					<img src="assets/preview/Acrostia.png" alt="Acrostia">
-					<h3>Acrostia</h3>
-					<p>Company</p>
-					<span class="jType">Верстка HTML+CSS</span>
-			</a>
-			<a href="temps/Escape/escape.html" class="projCard" target="_blanc">
-					<img src="assets/preview/Escape.png" alt="Escape">
-					<h3>Escape</h3>
-					<p>Company</p>
-					<span class="jType">Верстка HTML+CSS</span>
-			</a>
-			<a href="temps/Tork/Tork.html" class="projCard" target="_blanc">
-					<img src="assets/preview/Tork.png" alt="Tork">
-					<h3>Tork</h3>
-					<p>Company</p>
-					<span class="jType">Верстка HTML+CSS</span>
-			</a>
-			-->
 		</section>
+
+		<!--background bubbles-->
+		<div class="bgBubblesContainer">
+			<ul class="bubbles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 	</main>
 	<!--<div class="sectionWrapper">
 		<footer id="footer">
@@ -131,6 +81,8 @@
 			
 		</div>
 	</div>
+
+	
 	<script>
 		var app = new Vue({
 			el: '#projectsList',
@@ -139,17 +91,17 @@
 					{
 						name: "Доска объявлений",
 						herf: "https://mighty-tor-92733.herokuapp.com/",
-						projectIdea: "make some app work on heroku",
+						projectIdea: "Создать приложение на Heroku",
 						tech: ["bootstrap", "JQuery", "Node", "AJAX", "PostgreSQL"],
-						other: ["responsive"],
+						other: ["адаптивный"],
 						pic: "assets/preview/bulletin.png"
 					},
 					{
 						name: "Basic guest book",
 						herf: "guestBook/chat.html",
-						projectIdea: "make some app on php",
+						projectIdea: "Разобраться, как работает AJAX",
 						tech: ["bootstrap", "JQuery", "PHP", "AJAX", "mySQL"],
-						other: ["responsive"],
+						other: ["адаптивный"],
 						pic: "assets/preview/guestBook.png"
 					},
 					{
@@ -157,7 +109,7 @@
 						herf: "temps/Business/index.html",
 						projectIdea: "Верстка по готовому макету PSD",
 						tech: ["bootstrap", "JQuery"],
-						other: ["responsive"],
+						other: ["адаптивный"],
 						pic: "assets/preview/business.png"
 					},
 					{
@@ -165,7 +117,7 @@
 						herf: "https://origami1024.github.io/News-feed/newsfeed.html",
 						projectIdea: "Верстка по готовому макету",
 						tech: ["HTML", "CSS", "JS"],
-						other: ["responsive"],
+						other: ["адаптивный"],
 						pic: "assets/preview/newsfeed.png"
 					},
 					{
@@ -173,7 +125,7 @@
 						herf: "https://origami1024.github.io/briefing/briefing.html",
 						projectIdea: "Верстка по готовому макету",
 						tech: ["HTML", "CSS", "JS"],
-						other: ["responsive"],
+						other: ["адаптивный"],
 						pic: "assets/preview/briefing.png"
 					},
 					{
