@@ -162,7 +162,7 @@
 		document.addEventListener("DOMContentLoaded", function(event) { 
 			setCardHeights('projIdea')
 			setCardHeights('techDisplay')
-			
+			countVisitor()
 		});
 		function setCardHeights(className) {
 			//some height fixing stuff
@@ -180,6 +180,16 @@
 			}
 		}
 		
+		function countVisitor() {
+			var xhttp = new XMLHttpRequest();
+			/*xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				}
+			};*/
+
+			xhttp.open("POST", "visitors.php", true);
+			xhttp.send('a');
+		}
 		
 	</script>
 </body>
