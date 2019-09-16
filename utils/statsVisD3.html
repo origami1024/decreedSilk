@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap" rel="stylesheet">
+	<style>
+		body{
+			font-family: 'Montserrat', sans-serif;
+		}
+		.filterBar{
+			background-color: black;
+			border-radius: 50px;
+			color: white;
+			padding: 5px;
+			text-align: center;
+		}
+		h2{
+			margin: 5px;
+		}
+		input{
+			transform: scale(3);
+			margin: 15px 0;
+		}
+		label{
+			padding: 0 15px;
+			font-size: 1.2em;
+		}
+	</style>
+</head>
+<body>
+	<section class="filterBar">
+		<h2>Apply your groupings</h2>
+		<div>
+			<input type="checkbox" name="ipgroup" id="ipgroup">
+			<label for="ipgroup">IP groups</label>
+			<input type="checkbox" name="daygroup" id="daygroup">
+			<label for="daygroup">Day groups</label>
+		</div>
+	</section>
+	<section class="dataView">
+		<div class="dataViewWrapper" id="app">
+    </div>  
+	</section>
+
+	<script>
+		var data = [{'index1':55555,ip:'333',time:'333'}]
+		var htmled
+		loadDoc()
+		function loadDoc() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+    	  if (this.readyState == 4 && this.status == 200) {
+        	data = JSON.parse(this.responseText)
+        	v.setJson(data)
+        	v.groupIPs()
+      	}
+    	}
+    	xhttp.responseType = "text"
+		  xhttp.open("GET", "https://decreed-silk.000webhostapp.com/stats/index.php?callback=func", true);
+		  xhttp.send();
+		  
+		}
+		//now work with taht data
+
+		let datarow = Vue.component('datarow', {
+		  template: `  
+		  <tr>
+		    <td scope="row">{{item.index1 || "#"}}</td>
+		    <td>{{item.time || "sometime"}}</td>
+		    <td>{{item.ip}}</td>
+		    <td>{{item.count || 1}}</td>
+		  </tr>
+		  `,
+		  props: {
+		    item: Object
+		  }
+		})
+		let v = new Vue({
+		  el: '#app',
+		  template: `
+		  	<div class="row p-0 m-0 mt-3">
+		  		<div class="col">
+		  		<table class="table border w-50 m-auto">
+		      	<thead class="thead-dark">
+		      		<tr>
+						    <th style="width:5%;">#</th>
+						    <th style="width:45%;">Time</th>
+						    <th>IP</th>
+						    <th style="width:5%;">count</th>
+					  	</tr>
+		      	</thead>
+		      	<tbody>
+					  	<datarow v-for="item in list" :item="item"/>
+		      	</tbody>
+					</table>
+					</div>
+		  	</div>
+		  `,
+		  data: {
+		    list: data,
+		    groupedIPs: {}
+		  },
+		  components: {
+  			datarow: datarow
+ 			},
+	    methods: {
+	    	setJson (payload) {
+        	this.list = payload
+        },
+        groupIPs () {
+        	let groupedIPs = count(this.list, function (item) {
+    				return item.ip
+					});
+					console.log(groupedIPs)
+        }
+	    }
+		})
+		
+	//utils
+	count = function (ary, classifier) {
+    classifier = classifier || String;
+    return ary.reduce(function (counter, item) {
+        var p = classifier(item);
+        counter[p] = counter.hasOwnProperty(p) ? counter[p] + 1 : 1;
+        return counter;
+    }, {})
+	};
+	</script>
+
+</body>
+</html>
