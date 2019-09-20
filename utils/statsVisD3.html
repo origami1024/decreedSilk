@@ -14,7 +14,6 @@
 			font-family: 'Montserrat', sans-serif;
 		}
 		.filterBar{
-			background-color: black;
 			border-radius: 50px;
 			color: white;
 			padding: 5px;
@@ -35,7 +34,7 @@
 	</style>
 </head>
 <body>
-	<section class="filterBar">
+	<section class="filterBar bg-dark">
 		<h2>Apply your groupings</h2>
 		<div>
 			<input type="checkbox" name="ipgroup" id="ipgroup">
@@ -44,7 +43,8 @@
 			<label for="daygroup">Day groups</label>
 		</div>
 	</section>
-	<section class="dataView">
+	<img class="loader mx-auto d-block mt-5 pt-5" src="../assets/loading.gif">
+	<section class="dataView d-none">
 		<div class="dataViewWrapper" id="app">
     </div>  
 	</section>
@@ -60,6 +60,9 @@
         	data = JSON.parse(this.responseText)
         	v.setJson(data)
         	v.groupIPs()
+					$('.dataView').toggleClass('d-none')
+					$('.loader').toggleClass('d-none d-block')
+					
       	}
     	}
     	xhttp.responseType = "text"
